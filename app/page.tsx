@@ -27,11 +27,11 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Add your projects or portfolio items here */}
           <div className="bg-white p-4 rounded-md shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Project 1</h3>
+            <h3 className="text-xl font-semibold mb-2">ZPA</h3>
             <p>Project description goes here.</p>
           </div>
           <div className="bg-white p-4 rounded-md shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Project 2</h3>
+            <h3 className="text-xl font-semibold mb-2">Lexis Nexis</h3>
             <p>Project description goes here.</p>
           </div>
           {/* Add more projects as needed */}
