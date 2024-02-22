@@ -1,4 +1,4 @@
-/* styles/home.module.css */
+/* styles/Portfolio.module.css */
 .container {
     min-height: 100vh;
     display: flex;
@@ -8,32 +8,29 @@
   }
   
   .main {
-    padding: 5rem 0;
-    text-align: center;
+    padding: 2rem;
+    text-align: left;
   }
   
   .title {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
   
   .description {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 2rem;
   }
   
-  .grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-  
-  .card {
-    background: #f3f3f3;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .technicalSkills,
+  .professionalExperience,
+  .personalProjects,
+  .educationAndCertifications {
+    margin-bottom: 2rem;
   }
   
   .footer {
     margin-top: 2rem;
+    font-size: 1rem;
   }
   
