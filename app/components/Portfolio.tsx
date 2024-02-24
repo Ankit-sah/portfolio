@@ -54,7 +54,7 @@ const Portfolio = () => {
 
       <footer className="bg-gray-200 p-4 text-center">
         <p className="text-gray-800">I am constantly seeking new opportunities to collaborate, learn, and grow in the tech field.</p>
-        <p className="text-gray-800">Let's connect, share insights, and explore how we can contribute to the world of technology together.</p>
+        <p className="text-gray-800">Lets connect, share insights, and explore how we can contribute to the world of technology together.</p>
         <p className="text-gray-800">Feel free to reach out; I am eager to connect and network with fellow tech enthusiasts and professionals!</p>
 
         {/* Additional: Contact Icons */}
