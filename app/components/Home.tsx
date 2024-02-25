@@ -13,7 +13,7 @@ export default function Home() {
 
       <main className="container mx-auto p-4">
         <h1 className="text-4xl font-bold mb-4 ">
-          Welcome to{' '}
+          Welcome to my {' '}
           <Link href="/portfolio" className='cursor-pointer'>
           Portfolio
           </Link>{' '}
@@ -27,12 +27,14 @@ export default function Home() {
         <div className=" flex gap-4">
           {/* Add your projects or portfolio items here */}
           <div className="bg-white p-4 rounded-md shadow-md w-auto text-wrap">
-            <h3 className="text-xl font-semibold mb-2 ">ZPA</h3>
-            <p className='line-clamp-1'> This aplication is a report generation tool based on mern stack technology</p>
+            <h3 className="text-xl font-semibold mb-2 ">Zero Trust Security</h3>
+            <p className=''> This project is based on react Technology in front end and Express and MongoDB in Back end.
+The project deals with all sorts of identity access management related fields and includes SSO type,provisioning and creating assessments and reports along with riskfactors along with the crud functionality.
+</p>
           </div>
           <div className="bg-white p-4 rounded-md shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Lexis Nexis</h3>
-            <p>This project is based on react and nodejs </p>
+            <h3 className="text-xl font-semibold mb-2">Zero Trust Platform Assesment</h3>
+            <p>This  project is based on Nextjs 13  and Tailwind css in front end and next server in backend with prisma as databse ORM  and Mongo DB. The project deals with all sorts of identity access management related fields and includes SSO type,provisioning and creating assessments and reports along with model questionaaire and categories  along with the crud functionality. </p>
           </div>
           {/* Add more projects as needed */}
         </div>
