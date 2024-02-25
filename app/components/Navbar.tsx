@@ -12,11 +12,11 @@ const Navbar = () => {
       link: "/",
       title:"Home",
     },
-    {
-      id: 2,
-      link: "about",
-      title:"About"
-    },
+    // {
+    //   id: 2,
+    //   link: "about",
+    //   title:"About"
+    // },
     {
       id: 3,
       link: "portfolio",
@@ -25,13 +25,13 @@ const Navbar = () => {
     
     
     },
-    {
-      id: 4,
-      link: "experience",
-      title:"experience"
+    // {
+    //   id: 4,
+    //   link: "experience",
+    //   title:"experience"
       
 
-    },
+    // },
     {
       id: 5,
       link: "contact",
