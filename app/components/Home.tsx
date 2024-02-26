@@ -2,9 +2,10 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 export default function Home() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 h-full cursor-default  overflow-y-auto scrollbar-none  text-neutral-700  p-20">
       <Head>
         <title>Your Name - Portfolio</title>
         <meta name="description" content="Your portfolio description goes here" />
@@ -19,6 +20,12 @@ export default function Home() {
           </Link>{' '}
         
         </h1>
+        <Image
+      src="/Ankit.jpg"
+      width={200}
+      height={200}
+      alt="Picture of the author"
+    />
 
         <p className="text-lg mb-8">
           Explore my work and get to know more about me.
