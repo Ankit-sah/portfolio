@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 const Portfolio = () => {
   return (
-    <div className="bg-gradient-to-b from-blue-200 via-purple-200 to-pink-200 min-h-screen">
+    <div className="bg-gradient-to-b from-blue-200 via-purple-200 to-pink-200 min-h-screen  h-full cursor-default  overflow-y-auto scrollbar-none  text-neutral-700  p-20">
       <Head>
         <title>Ankit Kumar Sah - Portfolio</title>
         <meta name="description" content="Ankit Kumar Sah's portfolio showcasing skills and projects" />
