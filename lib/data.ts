@@ -48,7 +48,7 @@ export const experiencesData = [
     title: "Previous Front-End Development Roles",
     location: "Kathmandu",
     description:
-      "Accrued over 2 years of hands-on experience in Identity and Access Management (IAM). Worked on cutting-edge technologies like React, MongoDB, and Node.js. Notable achievements include bug resolution and deep engagement with the Okta platform.",
+      "Accrued over 3 years of hands-on experience in Identity and Access Management (IAM). Worked on cutting-edge technologies like React, MongoDB, and Node.js. Notable achievements include bug resolution and deep engagement with the Okta platform.",
     icon: React.createElement(CgWorkAlt),
     date: "[2021] - [2023]",
   },
