@@ -16,42 +16,56 @@ export default function Experience() {
   const { theme } = useTheme();
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
+    <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40 w-full">
       <SectionHeading>My experience</SectionHeading>
-      <VerticalTimeline lineColor="">
-        {experiencesData.map((item, index) => (
-          <React.Fragment key={index}>
-            <VerticalTimelineElement
-              contentStyle={{
+      <VerticalTimeline lineColor="" className="w-full">
+        {experiencesData.map((item, index) => {
+          const IconComponent = item.icon;
+          return (
+            <React.Fragment key={index}>
+              <VerticalTimelineElement
+                contentStyle={{
+                  background:
+                    theme === "light" 
+                      ? "linear-gradient(to bottom right, #f9fafb, #f3f4f6)" 
+                      : "linear-gradient(to bottom right, rgba(17, 24, 39, 0.8), rgba(31, 41, 55, 0.8))",
+                  boxShadow: theme === "light" 
+                    ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                    : "0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)",
+                  border: theme === "light" 
+                    ? "1px solid rgba(0, 0, 0, 0.1)" 
+                    : "1px solid rgba(255, 255, 255, 0.1)",
+                  textAlign: "left",
+                  padding: "1.3rem 2rem",
+                  borderRadius: "0.75rem",
+                }}
+                contentArrowStyle={{
+                  borderRight:
+                    theme === "light"
+                      ? "0.4rem solid #9ca3af"
+                      : "0.4rem solid rgba(255, 255, 255, 0.5)",
+                }}
+                date={item.date}
+                icon={<IconComponent />}
+                iconStyle={{
                 background:
-                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
-                boxShadow: "none",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
-                textAlign: "left",
-                padding: "1.3rem 2rem",
-              }}
-              contentArrowStyle={{
-                borderRight:
-                  theme === "light"
-                    ? "0.4rem solid #9ca3af"
-                    : "0.4rem solid rgba(255, 255, 255, 0.5)",
-              }}
-              date={item.date}
-              icon={item.icon}
-              iconStyle={{
-                background:
-                  theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
+                  theme === "light" 
+                    ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" 
+                    : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                color: "white",
                 fontSize: "1.5rem",
+                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
               }}
             >
               <h3 className="font-semibold capitalize">{item.title}</h3>
               <p className="font-normal !mt-0">{item.location}</p>
-              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
-                {item.description}
-              </p>
-            </VerticalTimelineElement>
-          </React.Fragment>
-        ))}
+                <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
+                  {item.description}
+                </p>
+              </VerticalTimelineElement>
+            </React.Fragment>
+          );
+        })}
       </VerticalTimeline>
     </section>
   );
