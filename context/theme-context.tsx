@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, createContext, useContext } from "react";
+import React, { useEffect, useState, createContext, useContext, useCallback, useMemo } from "react";
 
 type Theme = "light" | "dark";
 
@@ -19,41 +19,62 @@ export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
   const [theme, setTheme] = useState<Theme>("light");
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      window.localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      setTheme("light");
-      window.localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
-  };
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme") as Theme | null;
+    setMounted(true);
+    
+    try {
+      const localTheme = localStorage.getItem("theme") as Theme | null;
 
-    if (localTheme) {
-      setTheme(localTheme);
-
-      if (localTheme === "dark") {
+      if (localTheme === "dark" || localTheme === "light") {
+        setTheme(localTheme);
+        if (localTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setTheme("dark");
         document.documentElement.classList.add("dark");
       }
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-      document.documentElement.classList.add("dark");
+    } catch (error) {
+      // Ignore localStorage errors
     }
   }, []);
 
+  const toggleTheme = useCallback(() => {
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === "light" ? "dark" : "light";
+      
+      try {
+        localStorage.setItem("theme", newTheme);
+      } catch (error) {
+        // Ignore localStorage errors
+      }
+      
+      if (typeof document !== "undefined") {
+        if (newTheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      }
+      
+      return newTheme;
+    });
+  }, []);
+
+  const value = useMemo(
+    () => ({
+      theme: mounted ? theme : "light",
+      toggleTheme,
+    }),
+    [theme, toggleTheme, mounted]
+  );
+
   return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        toggleTheme,
-      }}
-    >
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );

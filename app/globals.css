@@ -13,3 +13,28 @@ html.dark {
 .borderBlack {
   @apply border border-black/10;
 }
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg;
+  }
+}
+
+/* Ensure VerticalTimeline is visible */
+.vertical-timeline-element-content {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.vertical-timeline-element {
+  visibility: visible !important;
+  opacity: 1 !important;
+}

@@ -19,29 +19,31 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        After graduating with a degree in{""}
-        <span className="font-medium">Electronics and communication Engineering</span>, I decided to pursue my
-        passion for programming. I enrolled in a coding bootcamp and learned{" "}
-        <span className="font-medium">full-stack web development</span>.{" "}
-        <span className="italic">My favorite part of programming</span> is the
-        problem-solving aspect. I <span className="underline">love</span> the
-        feeling of finally figuring out a solution to a problem. My core stack
-        is{" "}
-        <span className="font-medium">
-          React, Next.js, Node.js,Express and MongoDB
-        </span>
-        . I am also familiar with TypeScript and Prisma. I am always looking to
-        learn new technologies. I am currently looking for a{" "}
-        <span className="font-medium">full-time position</span> as a software
-        developer.
+        I'm a <span className="font-medium">Software Developer</span> with{" "}
+        <span className="font-medium">3.8 years</span> of experience designing, implementing, and securing{" "}
+        <span className="font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">enterprise identity ecosystems</span>. 
+        I specialize in <span className="font-medium">Okta, Auth0, SAML, SCIM, MFA, and Zero Trust architectures</span> with a strong foundation in{" "}
+        <span className="font-medium">full-stack development</span> (React, Next.js, Node.js).
+      </p>
+
+      <p className="mb-3">
+        <span className="italic">My expertise includes</span> delivering large-scale IAM migrations, SSO integrations, 
+        identity proofing, and advanced access control in high-security environments. I've{" "}
+        <span className="font-medium">deployed 100+ SSO connections</span>, automated SCIM provisioning for{" "}
+        <span className="font-medium">1000+ users</span>, and authored{" "}
+        <span className="font-medium">40+ IAM guides</span> that reduced support tickets by 30%.
       </p>
 
       <p>
-        <span className="italic">When I'm not coding</span>, I enjoy playing
-        video games, watching movies.. I also enjoy{" "}
-        <span className="font-medium">learning new things</span>. I am currently
-        learning about{" "}
-        <span className="font-medium">spirituality</span>.
+        My core stack is{" "}
+        <span className="font-medium">
+          React, Next.js 15, Node.js, Express, TypeScript, MongoDB, Prisma, Tailwind CSS
+        </span>
+        . I'm passionate about building{" "}
+        <span className="font-medium">secure, scalable, and automation-driven IAM solutions</span> for global organizations. 
+        When I'm not coding, I enjoy{" "}
+        <span className="font-medium">exploring new technologies</span> and{" "}
+        <span className="font-medium">contributing to open-source projects</span>.
       </p>
     </motion.section>
   );
