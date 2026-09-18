@@ -2,14 +2,14 @@
 
 import React from "react";
 import SectionHeading from "./section-heading";
-import { skillsData } from "@/lib/data";
+import { skillsCategories } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
-    y: 100,
+    y: 24,
   },
   animate: (index: number) => ({
     opacity: 1,
@@ -27,27 +27,39 @@ export default function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="section-container mb-28 scroll-mt-28 sm:mb-40"
     >
-      <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-3 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            className="group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-5 py-3 dark:text-white/90 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-            key={index}
+      <SectionHeading subtitle="Technical strengths aligned with IAM engineering and full-stack product delivery.">
+        Skills & expertise
+      </SectionHeading>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        {skillsCategories.map((category, categoryIndex) => (
+          <motion.div
+            key={category.title}
+            className="card-surface p-6 text-left"
             variants={fadeInAnimationVariants}
             initial="initial"
             whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-            custom={index}
+            viewport={{ once: true }}
+            custom={categoryIndex}
           >
-            <span className="relative z-10 font-medium">{skill}</span>
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 rounded-xl transition-all duration-300"></div>
-          </motion.li>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-blue-600 dark:text-blue-400">
+              {category.title}
+            </h3>
+            <ul className="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <li
+                  key={skill}
+                  className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm font-medium text-gray-800 dark:border-white/10 dark:bg-white/5 dark:text-gray-200"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }

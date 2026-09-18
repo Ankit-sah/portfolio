@@ -4,27 +4,65 @@
 
 html {
   --line-color: #e5e7eb;
+  --accent: #2563eb;
+  --accent-muted: rgba(37, 99, 235, 0.08);
 }
 
 html.dark {
-  --line-color: rgba(255, 255, 255, 0.2);
+  --line-color: rgba(255, 255, 255, 0.12);
+  --accent: #60a5fa;
+  --accent-muted: rgba(96, 165, 250, 0.1);
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: inherit;
 }
 
 .borderBlack {
-  @apply border border-black/10;
+  @apply border border-black/10 dark:border-white/10;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto w-full max-w-4xl px-4;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-gray-200/80 bg-white/75 shadow-sm backdrop-blur-sm transition-shadow dark:border-white/10 dark:bg-gray-900/60;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 active:scale-[0.98] dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-900 transition hover:border-gray-300 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 active:scale-[0.98] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border border-blue-200/80 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-blue-700 dark:border-blue-400/20 dark:bg-blue-500/10 dark:text-blue-300;
+  }
+
+  .certification-logo {
+    @apply grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white p-2 shadow-lg shadow-slate-900/10 ring-1 ring-slate-200/80 transition-transform duration-300 group-hover:scale-105 dark:bg-white dark:ring-white/20;
+  }
+
+  .certification-card::after {
+    content: "";
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+  }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent;
-  }
-  
-  .bg-gradient-radial {
-    background: radial-gradient(circle, var(--tw-gradient-stops));
-  }
-  
-  .glass-effect {
-    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg;
+    @apply bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-300 dark:via-blue-400 dark:to-indigo-300;
   }
 }
 

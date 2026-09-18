@@ -4,55 +4,53 @@ import React from "react";
 import SectionHeading from "./section-heading";
 import { certificationsData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { FaCertificate } from "react-icons/fa";
+import Image from "next/image";
+import { FaCheckCircle } from "react-icons/fa";
 
 const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    y: 100,
-  },
+  initial: { opacity: 0, y: 24 },
   animate: (index: number) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: 0.1 * index,
-    },
+    transition: { delay: 0.08 * index },
   }),
 };
 
 export default function Certifications() {
-
   return (
     <section
       id="certifications"
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40 w-full px-4 mx-auto"
+      className="section-container mb-28 scroll-mt-28 sm:mb-40"
     >
-      <SectionHeading>Certifications</SectionHeading>
-      <div className="flex flex-wrap justify-center gap-4">
+      <SectionHeading subtitle="Industry credentials that validate deep Okta expertise for enterprise IAM roles.">
+        Certifications
+      </SectionHeading>
+      <div className="grid gap-4 sm:grid-cols-2">
         {certificationsData.map((cert, index) => (
           <motion.div
-            key={index}
-            className="group relative bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/50 dark:to-purple-950/50 border border-blue-200 dark:border-blue-800 rounded-xl px-6 py-4 flex items-center gap-3 shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            key={cert.name}
+            className="certification-card group card-surface relative flex items-center gap-4 overflow-hidden p-5 text-left transition hover:-translate-y-1 hover:shadow-xl"
             variants={fadeInAnimationVariants}
             initial="initial"
-            animate="animate"
             whileInView="animate"
-            viewport={{
-              once: true,
-              margin: "-50px",
-            }}
+            viewport={{ once: true, margin: "-50px" }}
             custom={index}
           >
-            <FaCertificate className="text-2xl text-blue-600 dark:text-blue-400" />
-            <div className="text-left">
+            <div className="certification-logo">
+              <Image src={cert.logo} alt={`${cert.issuer} logo`} width={34} height={34} />
+            </div>
+            <div className="min-w-0">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-blue-600 dark:text-blue-300">
+                {cert.issuer} credential
+              </p>
               <h3 className="font-semibold text-gray-900 dark:text-white">
                 {cert.name}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                {cert.issuer}
+              <p className="mt-1 flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
+                <FaCheckCircle className="text-xs text-emerald-500" aria-hidden />
+                Certification listed on profile
               </p>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/0 to-purple-400/0 group-hover:from-blue-400/10 group-hover:to-purple-400/10 rounded-xl transition-all"></div>
           </motion.div>
         ))}
       </div>
