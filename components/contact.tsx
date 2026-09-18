@@ -53,6 +53,10 @@ export default function Contact() {
             formRef.current?.reset();
           }}
         >
+          <div className="sr-only" aria-hidden="true">
+            <label htmlFor="company-website">Company website</label>
+            <input id="company-website" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" />
+          </div>
           <input
             className="h-14 rounded-xl border border-gray-200 bg-white px-4 shadow-sm transition focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-700 dark:bg-white/95"
             name="senderEmail"
@@ -69,6 +73,9 @@ export default function Contact() {
             maxLength={5000}
           />
           <SubmitBtn />
+          <p className="mt-4 text-center text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+            Please include enough context about your role or project for a useful reply.
+          </p>
         </form>
       </div>
     </motion.section>

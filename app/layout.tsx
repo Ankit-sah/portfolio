@@ -6,16 +6,34 @@ import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata } from "next";
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Ankit Kumar Sah | IAM & Full-Stack Developer",
   description:
     "IAM Engineer and Software Developer with 4+ years of experience specializing in Okta, Auth0, SAML, SCIM, MFA, and Zero Trust. Okta Certified Professional, Developer, Administrator & Consultant.",
+  metadataBase: new URL("https://www.ankitkumarsah.com.np"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Ankit Kumar Sah | IAM & Full-Stack Developer",
+    description: "IAM engineering and secure full-stack application delivery with Okta, Auth0, SAML, SCIM, and Next.js.",
+    url: "/",
+    siteName: "Ankit Kumar Sah",
+    type: "website",
+    images: [{ url: "/Ankit.jpg", width: 616, height: 616, alt: "Ankit Kumar Sah" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Ankit Kumar Sah | IAM & Full-Stack Developer",
+    description: "IAM engineering and secure full-stack application delivery.",
+    images: ["/Ankit.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -50,6 +68,7 @@ export default function RootLayout({
 
             <Toaster position="top-right" />
             <ThemeSwitch />
+            <Analytics />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>

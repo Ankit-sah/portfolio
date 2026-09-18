@@ -82,6 +82,12 @@ export const projectsData = [
     tags: ["React", "Next.js", "Tailwind CSS", "React Query", "LMS", "Responsive UI"],
     imageUrl: null,
     liveUrl: "https://chaitanya.solutech.com.np/",
+    caseStudy: {
+      role: "Frontend developer",
+      challenge: "Create an accessible, fast learning experience for Loksewa candidates across devices.",
+      approach: "Built responsive course discovery, progress tracking, learning content, discussion, and chat experiences with production API integrations.",
+      outcome: "A live learning platform that supports structured preparation for academic and public-service exams.",
+    },
   },
   {
     title: "Travel Booking Platform – Secure Web Application",
@@ -90,6 +96,12 @@ export const projectsData = [
     tags: ["Next.js 14", "TypeScript", "Okta", "NextAuth.js", "Stripe", "Prisma", "MongoDB", "RBAC"],
     imageUrl: travelimg,
     liveUrl: null,
+    caseStudy: {
+      role: "Full-stack developer",
+      challenge: "Protect booking and administrative journeys while keeping payments and access control reliable.",
+      approach: "Combined Next.js server components, Okta OIDC, role-based authorization, and Stripe webhook reconciliation.",
+      outcome: "A secure booking workflow with controlled access and auditable payment state.",
+    },
   },
   {
     title: "Janakpur Art & Craft - Secure E-Commerce Platform",
@@ -98,6 +110,12 @@ export const projectsData = [
     tags: ["Next.js", "Okta", "NextAuth.js", "Stripe", "RBAC", "Prisma", "MongoDB"],
     imageUrl: ecomimg,
     liveUrl: null,
+    caseStudy: {
+      role: "Full-stack developer",
+      challenge: "Deliver secure customer and administrator journeys for an e-commerce platform.",
+      approach: "Implemented Okta OIDC, NextAuth.js sessions, RBAC, protected API routes, and Stripe Checkout.",
+      outcome: "A production-oriented commerce foundation with secure onboarding and order workflows.",
+    },
   },
   {
     title: "BeyondID Integration Network",
@@ -106,6 +124,12 @@ export const projectsData = [
     tags: ["Next.js", "Tailwind CSS", "Prisma", "MongoDB", "IAM", "Risk Assessment"],
     imageUrl: ztsimg,
     liveUrl: null,
+    caseStudy: {
+      role: "IAM-focused software developer",
+      challenge: "Turn identity risk discovery into a consistent, actionable assessment process.",
+      approach: "Created guided security questionnaires, risk categorization, and Prisma-backed MongoDB workflows.",
+      outcome: "A repeatable identity assessment experience for teams evaluating security posture.",
+    },
   },
   {
     title: "Zero Trust Security System",
@@ -114,6 +138,12 @@ export const projectsData = [
     tags: ["React", "Express.js", "MongoDB", "IAM", "SSO", "Zero Trust"],
     imageUrl: zpaimg,
     liveUrl: null,
+    caseStudy: {
+      role: "Full-stack developer",
+      challenge: "Centralize SSO, assessment, and risk-management processes in one application.",
+      approach: "Built React and Express modules with MongoDB-backed CRUD, reporting, and access-management workflows.",
+      outcome: "A consolidated dashboard for identity security operations and compliance reporting.",
+    },
   },
 ] as const;
 
@@ -172,25 +202,40 @@ export const certificationsData = [
     name: "Okta Certified Professional",
     issuer: "Okta",
     logo: "/brands/okta.svg",
-  },
-  {
-    name: "Okta Certified Developer",
-    issuer: "Okta",
-    logo: "/brands/okta.svg",
+    verificationUrl:
+      "https://www.credly.com/earner/earned/badge/05f101fc-a871-4a3c-8332-5dffc36b7568",
+    validity: "Valid through Sep 2027",
   },
   {
     name: "Okta Certified Administrator",
     issuer: "Okta",
     logo: "/brands/okta.svg",
+    verificationUrl:
+      "https://www.credly.com/earner/earned/badge/fbc03e7e-d35c-4384-a702-acc622b46f97",
+    validity: "Valid through Sep 2027",
   },
   {
     name: "Okta Certified Consultant",
     issuer: "Okta",
     logo: "/brands/okta.svg",
+    verificationUrl:
+      "https://www.credly.com/earner/earned/badge/d1b56c1e-0856-4527-82bd-5077237fe428",
+    validity: "Valid through Sep 2027",
+  },
+  {
+    name: "Okta Workforce Identity Product Specialized",
+    issuer: "Okta",
+    logo: "/brands/okta.svg",
+    verificationUrl:
+      "https://www.credly.com/earner/earned/badge/422c7cd3-fc56-41e1-987b-1c34d606da43",
+    validity: "No expiration",
   },
   {
     name: "Auth0 Consumer Application Prototype Champion",
     issuer: "Auth0",
     logo: "/brands/auth0.svg",
+    verificationUrl:
+      "https://www.credly.com/earner/earned/badge/96bd2e3a-149e-4aa8-9cd7-d5666c1484e5",
+    validity: "No expiration",
   },
 ] as const;

@@ -12,7 +12,7 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 
 const highlights = [
   "4+ years experience",
-  "4× Okta certified",
+  "4× Okta credentials",
   "100+ SSO deployments",
 ];
 
@@ -110,7 +110,12 @@ export default function Intro() {
         </Link>
 
         <a className="btn-secondary group" href="/CV.pdf" download>
-          Download resume
+          Resume PDF
+          <HiDownload className="opacity-70 transition group-hover:translate-y-0.5" />
+        </a>
+
+        <a className="btn-secondary group" href="/Ankit_Kumar_Sah_Resume.docx" download>
+          Editable resume
           <HiDownload className="opacity-70 transition group-hover:translate-y-0.5" />
         </a>
 
