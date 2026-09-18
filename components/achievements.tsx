@@ -11,28 +11,24 @@ const achievements = [
     number: "100+",
     label: "SSO Connections Deployed",
     description: "Reduced manual workflows by 40%",
-    gradient: "from-blue-500 to-cyan-500",
   },
   {
     icon: FaShieldAlt,
-    number: "1000+",
+    number: "1,000+",
     label: "Users Provisioned",
-    description: "Automated SCIM provisioning",
-    gradient: "from-purple-500 to-pink-500",
+    description: "Automated SCIM provisioning with MFA enforcement",
   },
   {
     icon: FaFileAlt,
     number: "40+",
     label: "IAM Guides Authored",
     description: "Reduced support tickets by 30%",
-    gradient: "from-indigo-500 to-blue-500",
   },
   {
     icon: FaChartLine,
     number: "25%",
     label: "Faster Implementation",
-    description: "Reusable SAML templates",
-    gradient: "from-green-500 to-emerald-500",
+    description: "Reusable SAML integration templates",
   },
 ];
 
@@ -40,20 +36,16 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.5,
-    },
+    transition: { duration: 0.45 },
   },
 };
 
@@ -61,44 +53,42 @@ export default function Achievements() {
   return (
     <section
       id="achievements"
-      className="mb-28 max-w-[65rem] scroll-mt-28 sm:mb-40 w-full px-4 mx-auto"
+      className="section-container mb-28 scroll-mt-28 sm:mb-40"
     >
-      <SectionHeading>Key Achievements</SectionHeading>
+      <SectionHeading subtitle="Measurable outcomes from enterprise IAM and secure application work.">
+        Impact at a glance
+      </SectionHeading>
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 gap-5 md:grid-cols-2"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-80px" }}
       >
-        {achievements.map((achievement, index) => {
+        {achievements.map((achievement) => {
           const Icon = achievement.icon;
           return (
             <motion.div
-              key={index}
+              key={achievement.label}
               variants={itemVariants}
-              className="group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:scale-105"
+              className="card-surface p-6 transition hover:-translate-y-0.5 hover:shadow-md"
             >
               <div className="flex items-start gap-4">
-                <div
-                  className={`p-4 rounded-xl bg-gradient-to-br ${achievement.gradient} shadow-lg`}
-                >
-                  <Icon className="text-2xl text-white" />
+                <div className="rounded-xl bg-blue-600 p-3 text-white shadow-sm dark:bg-blue-500">
+                  <Icon className="text-xl" />
                 </div>
-                <div className="flex-1">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent mb-1">
+                <div className="flex-1 text-left">
+                  <div className="text-3xl font-bold tracking-tight text-gray-950 dark:text-white">
                     {achievement.number}
                   </div>
-                  <div className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                  <div className="mt-1 text-base font-semibold text-gray-900 dark:text-white">
                     {achievement.label}
                   </div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">
+                  <div className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                     {achievement.description}
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/5 group-hover:to-purple-500/5 rounded-2xl transition-all duration-300"></div>
             </motion.div>
           );
         })}

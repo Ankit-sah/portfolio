@@ -8,8 +8,8 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    serverActions: true,
+  turbopack: {
+    root: __dirname,
   },
 };
 

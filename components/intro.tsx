@@ -10,6 +10,12 @@ import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
+const highlights = [
+  "4+ years experience",
+  "4× Okta certified",
+  "100+ SSO deployments",
+];
+
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -18,104 +24,117 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem] mx-auto px-4"
+      className="section-container mb-20 scroll-mt-[100rem] text-center sm:mb-28"
     >
-      <div className="flex items-center justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="mb-6 flex justify-center"
+      >
+        <span className="badge">Open to new opportunities</span>
+      </motion.div>
+
+      <div className="mb-8 flex items-center justify-center">
         <div className="relative">
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "tween",
-              duration: 0.2,
-            }}
+            transition={{ type: "tween", duration: 0.25 }}
           >
             <Image
               src="/Ankit.jpg"
-              alt="Ankit portrait"
+              alt="Ankit Kumar Sah"
               width="192"
               height="192"
               quality="95"
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-2xl ring-4 ring-blue-500/20 dark:ring-blue-400/30"
+              className="h-28 w-28 rounded-full border-4 border-white object-cover shadow-xl ring-2 ring-blue-500/20 dark:border-gray-800 dark:ring-blue-400/25 sm:h-32 sm:w-32"
             />
           </motion.div>
-
-          <motion.span
-            className="absolute bottom-0 right-0 text-4xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: "spring",
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
-            }}
-            whileHover={{ scale: 1.2, rotate: 10 }}
-          >
-            👋
-          </motion.span>
         </div>
       </div>
 
-      <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
-        initial={{ opacity: 0, y: 100 }}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05 }}
       >
-        <span className="font-bold">Hello, I'm Ankit.</span> I'm a{" "}
-        <span className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Software Developer</span> with{" "}
-        <span className="font-bold">3.8 years</span> of experience specializing in{" "}
-        <span className="font-bold bg-gradient-to-r from-indigo-600 to-cyan-600 bg-clip-text text-transparent">Identity & Access Management</span>. 
-        I design and implement{" "}
-        <span className="italic">secure enterprise identity ecosystems</span> using{" "}
-        <span className="underline">Okta, Auth0, SAML, SCIM & Zero Trust</span> architectures.
-      </motion.h1>
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400">
+          IAM & Full-Stack Developer
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl sm:leading-tight">
+          Ankit Kumar Sah
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-300 sm:text-xl">
+          I help organizations ship{" "}
+          <span className="font-semibold text-gray-900 dark:text-white">
+            secure identity platforms
+          </span>{" "}
+          and production-ready web applications using Okta, Auth0, SAML, SCIM,
+          React, and Next.js.
+        </p>
+      </motion.div>
+
+      <motion.ul
+        className="mt-8 flex flex-wrap items-center justify-center gap-3"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+      >
+        {highlights.map((item) => (
+          <li
+            key={item}
+            className="rounded-full border border-gray-200 bg-white/80 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-gray-200"
+          >
+            {item}
+          </li>
+        ))}
+      </motion.ul>
 
       <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-        initial={{ opacity: 0, y: 100 }}
+        className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.1,
-        }}
+        transition={{ delay: 0.15 }}
       >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+          className="btn-primary group"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
           }}
         >
-          Contact me here{" "}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
+          Get in touch
+          <BsArrowRight className="opacity-80 transition group-hover:translate-x-0.5" />
         </Link>
 
-        <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
-          href="/CV.pdf"
-          download
-        >
-          Download CV{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
+        <a className="btn-secondary group" href="/CV.pdf" download>
+          Download resume
+          <HiDownload className="opacity-70 transition group-hover:translate-y-0.5" />
         </a>
 
-        <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://www.linkedin.com/in/ankit-kumar-sah-419525149/"
-          target="_blank"
-        >
-          <BsLinkedin />
-        </a>
+        <div className="flex items-center gap-2">
+          <a
+            className="btn-secondary !px-4 !py-3"
+            href="https://www.linkedin.com/in/ankit-kumar-sah-419525149/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn profile"
+          >
+            <BsLinkedin />
+          </a>
 
-        <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://github.com/Ankit-sah"
-          target="_blank"
-        >
-          <FaGithubSquare />
-        </a>
+          <a
+            className="btn-secondary !px-4 !py-3 text-xl"
+            href="https://github.com/Ankit-sah"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub profile"
+          >
+            <FaGithubSquare />
+          </a>
+        </div>
       </motion.div>
     </section>
   );
