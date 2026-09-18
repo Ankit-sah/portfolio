@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -16,9 +16,11 @@ export default function Project({
   tags,
   imageUrl,
   liveUrl,
+  caseStudy,
   index,
 }: ProjectProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["0 1", "1.33 1"],
@@ -35,7 +37,7 @@ export default function Project({
       }}
       className="group mb-3 w-full sm:mb-8 last:mb-0"
     >
-      <section className="card-surface relative max-w-[42rem] overflow-hidden sm:h-[20rem] sm:pr-8 sm:group-even:pl-8">
+      <section className={`card-surface relative max-w-[42rem] overflow-hidden sm:pr-8 sm:group-even:pl-8 ${isCaseStudyOpen ? "sm:min-h-[20rem]" : "sm:h-[20rem]"}`}>
         <div className="flex h-full flex-col px-5 py-6 sm:max-w-[50%] sm:pl-10 sm:pr-2 sm:pt-10 sm:group-even:ml-[18rem]">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400">
             Project {index + 1}
@@ -46,6 +48,22 @@ export default function Project({
           <p className="mt-3 leading-relaxed text-gray-700 dark:text-white/70">
             {description}
           </p>
+          <button
+            type="button"
+            className="mt-3 w-fit text-sm font-semibold text-blue-700 underline-offset-4 transition hover:underline dark:text-blue-300"
+            onClick={() => setIsCaseStudyOpen((open) => !open)}
+            aria-expanded={isCaseStudyOpen}
+          >
+            {isCaseStudyOpen ? "Hide case study" : "View case study"}
+          </button>
+          {isCaseStudyOpen && (
+            <div className="mt-3 space-y-2 rounded-xl border border-blue-100 bg-blue-50/70 p-3 text-sm leading-relaxed text-gray-700 dark:border-blue-400/15 dark:bg-blue-500/10 dark:text-gray-200">
+              <p><span className="font-semibold">Role:</span> {caseStudy.role}</p>
+              <p><span className="font-semibold">Challenge:</span> {caseStudy.challenge}</p>
+              <p><span className="font-semibold">Approach:</span> {caseStudy.approach}</p>
+              <p><span className="font-semibold">Outcome:</span> {caseStudy.outcome}</p>
+            </div>
+          )}
           {liveUrl && (
             <a href={liveUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex w-fit items-center gap-2 text-sm font-semibold text-blue-700 transition hover:text-blue-900 dark:text-blue-300 dark:hover:text-blue-200">
               Visit live project <FiExternalLink aria-hidden />

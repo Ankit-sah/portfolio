@@ -6,12 +6,14 @@ import Projects from "@/components/projects";
 import Skills from "@/components/skills";
 import Certifications from "@/components/certifications";
 import Achievements from "@/components/achievements";
+import Services from "@/components/services";
 
 export default function Home() {
   return (
     <main className="flex w-full flex-col items-center">
       <Intro />
       <Achievements />
+      <Services />
       <Experience />
       <Projects />
       <Skills />

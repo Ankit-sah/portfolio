@@ -6,6 +6,7 @@ import { certificationsData } from "@/lib/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 
 const fadeInAnimationVariants = {
   initial: { opacity: 0, y: 24 },
@@ -22,13 +23,17 @@ export default function Certifications() {
       id="certifications"
       className="section-container mb-28 scroll-mt-28 sm:mb-40"
     >
-      <SectionHeading subtitle="Industry credentials that validate deep Okta expertise for enterprise IAM roles.">
+      <SectionHeading subtitle="Verified Credly credentials that demonstrate enterprise identity expertise.">
         Certifications
       </SectionHeading>
       <div className="grid gap-4 sm:grid-cols-2">
         {certificationsData.map((cert, index) => (
-          <motion.div
+          <motion.a
             key={cert.name}
+            href={cert.verificationUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Verify ${cert.name} on Credly (opens in a new tab)`}
             className="certification-card group card-surface relative flex items-center gap-4 overflow-hidden p-5 text-left transition hover:-translate-y-1 hover:shadow-xl"
             variants={fadeInAnimationVariants}
             initial="initial"
@@ -48,10 +53,13 @@ export default function Certifications() {
               </h3>
               <p className="mt-1 flex items-center gap-1.5 text-sm text-gray-600 dark:text-gray-400">
                 <FaCheckCircle className="text-xs text-emerald-500" aria-hidden />
-                Certification listed on profile
+                <span>{cert.validity}</span>
               </p>
+              <span className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-blue-600 transition group-hover:text-blue-700 dark:text-blue-300 dark:group-hover:text-blue-200">
+                Verify on Credly <FiExternalLink aria-hidden />
+              </span>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </section>

@@ -10,6 +10,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get("senderEmail");
   const message = formData.get("message");
+  const companyWebsite = formData.get("companyWebsite");
+
+  // Honeypot field: legitimate visitors never see this input, while most
+  // automated form submissions populate it.
+  if (typeof companyWebsite === "string" && companyWebsite.trim().length > 0) {
+    return { error: "Unable to send this message. Please try again." };
+  }
 
   // simple server-side validation
   if (!validateString(senderEmail, 500)) {
