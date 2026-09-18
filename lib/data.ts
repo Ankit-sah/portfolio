@@ -38,6 +38,14 @@ export const links = [
 
 export const experiencesData = [
   {
+    title: "IT System Administrator & IAM Engineer",
+    location: "ICT Inc. | Remote (via Upwork)",
+    description:
+      "Manage and improve Okta Identity Engine and Microsoft 365 environments. Strengthen security protocols, streamline onboarding workflows, and provide end-user support across business applications. Deliver accountable, responsive, and solution-oriented IAM and IT operations support.",
+    icon: CgWorkAlt,
+    date: "Mar 2026 – Present",
+  },
+  {
     title: "CIAM Developer / Software Developer",
     location: "Anthropic Identity | Kathmandu, Nepal",
     description:
@@ -51,7 +59,7 @@ export const experiencesData = [
     description:
       "Developed and implemented identity access management solutions using React, Node.js, and MongoDB, improving system security and user authentication processes by 35%. Verified and resolved over 100 bug reports and issues, ensuring smooth operation of applications and increasing system uptime. Learned and applied multiple coding languages and development frameworks, such as TypeScript and Express, reducing development time by 15%. Conducted rigorous root-cause analyses to identify and correct software issues, decreasing recurring problems by 40%.",
     icon: CgWorkAlt,
-    date: "Feb 2023 – Sep 2024",
+    date: "Mar 2023 – Sep 2024",
   },
   {
     title: "Associate Software Developer",
@@ -80,10 +88,10 @@ export const projectsData = [
     imageUrl: ecomimg,
   },
   {
-    title: "CFI Group - Enterprise IAM Migration",
+    title: "BeyondID Integration Network",
     description:
-      "Spearheaded migration of enterprise applications to modern identity platforms. Enhanced security through multi-factor authentication and conditional access policies. Resolved complex identity synchronization challenges across hybrid environments. Developed comprehensive technical documentation for identity management processes.",
-    tags: ["Okta", "SAML", "SCIM", "MFA", "Enterprise IAM"],
+      "Researched and developed a greenfield identity assessment platform using Next.js and Tailwind CSS. Built security model questionnaires, risk categorization workflows, and Prisma-powered MongoDB data operations to support identity management assessments.",
+    tags: ["Next.js", "Tailwind CSS", "Prisma", "MongoDB", "IAM", "Risk Assessment"],
     imageUrl: ztsimg,
   },
   {
@@ -117,6 +125,10 @@ export const skillsData = [
   "Zero Trust",
   "RBAC",
   "AWS S3",
+  "Microsoft 365",
+  "Active Directory",
+  "System Administration",
+  "Technical Support",
   "Docker",
   "Git",
   "CI/CD",

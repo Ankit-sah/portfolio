@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Ankit Kumar Sah | IAM & Full-Stack Developer",
-  description: "Software Developer with 3.8 years of experience specializing in Identity & Access Management (IAM), Okta, Auth0, SAML, SCIM, and Zero Trust architectures. Expert in React, Next.js, and enterprise security solutions.",
+  description: "IAM Engineer and Software Developer with 4+ years of experience specializing in Okta, Auth0, SAML, SCIM, MFA, and Zero Trust architectures. Experienced with React, Next.js, and enterprise security solutions.",
 };
 
 export default function RootLayout({

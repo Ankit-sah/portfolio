@@ -63,9 +63,9 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Ankit.</span> I'm a{" "}
-        <span className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Software Developer</span> with{" "}
-        <span className="font-bold">3.8 years</span> of experience specializing in{" "}
+        <span className="font-bold">Hello, I'm Ankit.</span> I'm an{" "}
+        <span className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">IAM Engineer & Software Developer</span> with{" "}
+        <span className="font-bold">4+ years</span> of experience specializing in{" "}
         <span className="font-bold bg-gradient-to-r from-indigo-600 to-cyan-600 bg-clip-text text-transparent">Identity & Access Management</span>. 
         I design and implement{" "}
         <span className="italic">secure enterprise identity ecosystems</span> using{" "}

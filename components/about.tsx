@@ -20,7 +20,7 @@ export default function About() {
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
         I'm a <span className="font-medium">Software Developer</span> with{" "}
-        <span className="font-medium">3.8 years</span> of experience designing, implementing, and securing{" "}
+        <span className="font-medium">4+ years</span> of experience designing, implementing, and securing{" "}
         <span className="font-medium bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">enterprise identity ecosystems</span>. 
         I specialize in <span className="font-medium">Okta, Auth0, SAML, SCIM, MFA, and Zero Trust architectures</span> with a strong foundation in{" "}
         <span className="font-medium">full-stack development</span> (React, Next.js, Node.js).
